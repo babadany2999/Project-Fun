@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-import "../Styles/WelcomeLink.css";
+import "../Styles/Buttons.css";
 
 
-const WelcomeLink = ({link, name}) => {
+const Buttons = ({link, name}) => {
     return (
-        <Link to={"/" + link} className={"WelcomeLink"}>
+        <Link to={"/" + link} className={"Buttons"}>
             <span></span>
             <span></span>
             <span></span>
@@ -14,4 +14,4 @@ const WelcomeLink = ({link, name}) => {
     )
 }
 
-export default WelcomeLink;
+export default Buttons;

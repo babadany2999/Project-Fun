@@ -6,4 +6,5 @@
     left: 0;
     background-image: url("../../public/assets/sci-fi-background.jpg");
     opacity: 0.5;
+    z-index: -300;
 }
