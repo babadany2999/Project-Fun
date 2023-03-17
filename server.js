@@ -14,8 +14,12 @@ const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
-connection.once('open', () => {
+connection.once('open', async () => {
   console.log("MongoDB database connection established successfully");
+
+  const DietModel = require("./backend/Schemas/test.js");
+  await DietModel.save()
+  
 });
 
 app.listen(port, () => {

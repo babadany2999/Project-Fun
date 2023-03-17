@@ -5,7 +5,7 @@ import '../Styles/Welcome.css';
 
 const Training = () => {
     return (
-        <div className="TrainingWrapper">
+        <div className="TrainingWrapper MainPage">
             
         </div>
     )

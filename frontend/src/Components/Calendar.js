@@ -5,7 +5,7 @@ import '../Styles/Welcome.css';
 
 const Calendar = () => {
     return (
-        <div className="CalendarWrapper">
+        <div className="CalendarWrapper MainPage">
 
         </div>
     )

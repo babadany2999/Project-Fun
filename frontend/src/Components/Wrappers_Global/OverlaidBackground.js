@@ -1,4 +1,4 @@
-import "../Styles/OverlaidBackground.css";
+import "../../Styles/Wrappers_Global/OverlaidBackground.css";
 
 const OverlaidBackground = () => {
     return (

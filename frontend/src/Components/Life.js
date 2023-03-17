@@ -5,7 +5,7 @@ import '../Styles/Welcome.css';
 
 const Life = () => {
     return (
-        <div className="LifeWrapper">
+        <div className="LifeWrapper MainPage">
             
         </div>
     )

@@ -4,7 +4,7 @@ import Buttons from './Buttons';
 
 const Welcome = () => {
   return (
-    <div className="WelcomeContainer">
+    <div className="WelcomeContainer MainPage">
       
 
       <Buttons link={"diet"} name={"Diet"}></Buttons>
