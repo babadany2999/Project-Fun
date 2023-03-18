@@ -13,6 +13,9 @@ const DietSelected = () => {
         if(!params.type || !(["breakfast", "lunch", "dinner"].includes(params.type.trim().toLowerCase()))) {
             navigate("/404");
         }
+        if(!params.number || !(["menu_one", "menu_two", "menu_three"].includes(params.number.trim().toLowerCase()))){
+            navigate("/404");
+        }
     } ,[params])
 
 

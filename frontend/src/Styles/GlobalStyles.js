@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
   }
+  * {
+    user-select:none;
+    user-drag: none;
+    cursor: url("/assets/custom_cursor_normal.png"), auto;
+  }
 `;
 
 export default GlobalStyle;
