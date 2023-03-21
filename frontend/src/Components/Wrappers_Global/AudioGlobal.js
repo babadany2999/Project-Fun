@@ -9,7 +9,7 @@ const AudioGlobal = () => {
 
 
     const soundFile = {
-        src: "assets//Audio/RipTear.mp4",
+        src: "assets/Audio/RipTear.mp4",
         artist: "Mick Gordon",
         track: "Rip & Tear"
     }
@@ -23,19 +23,36 @@ const AudioGlobal = () => {
 
     const [sound, setSound] = useState(null);
 
+    const [soundDuration, setSoundDuration] = useState(0);
+
+
     useEffect(()=>{
         if(isPlaying){
             if(sound === null){
                 setSound(new Howl({
                     src: soundFile.src,
                     volume: 0.5,
-                    autoplay: true
+                    autoplay: true,
                 }))   
             }else{
                 sound.play();
             } 
         }
     }, [isPlaying, sound])
+
+    useEffect(()=>{
+        if(sound !== null && sound._duration !== 0) {
+            console.log(sound._duration);
+            setSoundDuration(sound._duration);
+            console.log("sound dur: ", sound._duration)
+        }
+    }, [sound, sound ? sound._duration : null])
+
+    useEffect(()=>{
+        if(soundDuration !== 0){
+            console.log(soundDuration)
+        }
+    }, [soundDuration])
 
 
         const handleMouseHover = () => {

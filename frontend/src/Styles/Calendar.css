@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.CalendarWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CalendarContainer {
+    width: 60%;
+    min-width: 1080px;
+    border: 3px solid #2B095E;
+    position: fixed;
+    top: 15%;
+}
+.CalendarWrapper > div {
+    width: 60%;
+    min-width: 1080px;
+}
+.CalendarHeader {
+    background: linear-gradient(90deg, rgba(43,9,94,.5) 0%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 75%, rgba(43,9,94,.5)  100%);
+background-size: 400% 400%;
+background-position: 50% 50%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    position: relative;
+}
+.CalendarHeader::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    bottom: 0px;
+}
+.CalendarHeaderAnimNext .CalendarMonth, .CalendarHeaderAnimPrevious .CalendarMonth {
+    color: #F5E55B;
+}
+.CalendarHeaderAnimPrevious {
+    animation: 0.5s headerAnimPrevious forwards;
+}
+.CalendarHeaderAnimNext {
+    animation: .5s headerAnimNext forwards;
+ }
+ .CalendarHeaderAnimPreviousFinished {
+    animation: 0.5s headerAnimPreviousFinished forwards;
+ }
+ .CalendarHeaderAnimNextFinished {
+    animation: 0.5s headerAnimNextFinished forwards;
+ }
+.CalendarMonth {
+    flex: 0.5;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    transition: color 0.5s;
+    font-family: 'Anton', sans-serif;
+
+}
+.CalendarMonth > span {
+    font-size: 30px;
+    position: relative;
+}
+.CalendarMonth > span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    transition: 0.5s;
+}
+.CalendarHeaderAnimNext .CalendarMonth > span::before, .CalendarHeaderAnimPrevious .CalendarMonth > span::before {
+    background-color: #FFFBDD;
+    width: 150%;
+    left: -25%;
+}
+.CalendarMonthBtn {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 20%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.CalendarMonthBtn > span {
+    transition: 0.25s ease-out;
+    line-height: 50px;
+    font-size: 50px;
+}
+.CalendarMonthBtn:first-child:hover > span{
+    transform: translateX(-300%);
+}
+.CalendarMonthBtn:last-child:hover > span {
+    transform: translateX(300%);
+}
+.CalendarYear {
+    flex: 0.3;   
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    color: white;
+}
+.CalendarYearBtn {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 20%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: color 0.5s;
+}
+.CalendarYearBtn > span {
+    line-height: 30px;
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+.CalendarYearBtn:hover{
+    color: #2B095E;
+}
+.CalendarContent {
+    display: flex;
+    background-color: rgba(151,131,206, 0.5);
+    flex-direction: column; 
+}
+.CalendarDayNames {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.CalendarDayNames::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    bottom: 0px;
+}
+.CalendarDayNames > span {
+    flex: 14.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Anton", "sans-serif";
+    color: #FFFBDD;
+    letter-spacing: 1px;
+}
+.CalendarDays {
+    display: flex;
+    flex-direction: column;
+}
+.CalendarRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: .20;
+}
+.CalendarRow:not(:last-child) {
+    border-bottom: 2px solid white;
+}
+.CalendarRow:last-child {
+    border-bottom: 2px solid transparent;
+}
+.CalendarDay {
+    flex: 14.2;
+    height: 80px;
+    position: relative;
+}
+.CalendarDay:not(:last-child) {
+    border-right: 2px solid white;
+}
+.CalendarDay:last-child {
+    border-right: 2px solid transparent;
+}
+.CalendarDay > span {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-family: "Anton", "sans-serif";
+    font-size: 10px;
+    color: white;
+}
+.CalendarDayInvalid {
+    position: relative;
+    overflow: hidden;
+}
+.CalendarDayInvalid::before, .CalendarDayInvalid::after {
+    position: absolute;
+    content :"";
+    width: 50%;
+    height: 5px;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+}
+.CalendarDayInvalid::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.CalendarDayInvalid::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.CalendarBtnsNoDisplay {
+    visibility: hidden;
+}
+
+.CalendarStartDay, .CalendarDDay, .CalendarNormalTrainingDay, .CalendarSaturdayTrainingDay, .CalendarSundayTrainingDay {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
+}
+.CalendarStartDay {
+    background-image:url("../../public/assets/Calendar_Icons/start.jpg");
+}
+.CalendarDDay {
+    background-image: url("../../public/assets/Calendar_Icons/dday.jpg")
+}
+.CalendarNormalTrainingDay {
+    background-image: url("../../public/assets/Calendar_Icons/normalday.jpg");
+}
+.CalendarSaturdayTrainingDay {
+    background-image: url("../../public/assets/Calendar_Icons/saturdayday.jpg")
+}
+.CalendarSundayTrainingDay {
+    background-image: url("../../public/assets/Calendar_Icons/sundayday.jpg")
+}
+.CalendarLegend {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    bottom: 0;
+    background-image: url("../../public/assets/Calendar_Icons/legend.png");
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 5px 5px;
+}
+@keyframes headerAnimPrevious {
+    0% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes headerAnimNext {
+    0% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+@keyframes headerAnimPreviousFinished {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+@keyframes headerAnimNextFinished {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}

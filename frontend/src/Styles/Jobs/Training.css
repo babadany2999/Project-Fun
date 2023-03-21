@@ -1,0 +1,39 @@
+.TrainingSelectedWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.TrainingTableWrapper {
+    max-height: 500px;
+    overflow-y:auto;
+    overflow-x: hidden;
+    flex: .6;
+    max-width: 80%;
+    position: relative;
+    border: 2px solid white;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    scrollbar-width: 10px;
+}
+.TrainingSelectedWrapper table {
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    color: #FFFBDD;
+}
+.TrainingSelectedWrapper th, .TrainingSelectedWrapper td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+.TrainingSelectedWrapper th {
+    /* background-color: #222; */
+}
+.TrainingSelectedWrapper td {
+    /* background-color: #444; */
+}
+.TrainingSelectedWrapper tr:hover td {
+    /* background-color: #666; */
+}

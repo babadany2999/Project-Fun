@@ -3,7 +3,7 @@ import {Routes, Route } from 'react-router-dom';
 import Welcome from './Components/Welcome';
 import Diet from './Components/Diet';
 import Life from "./Components/Life";
-import Training from './Components/Life';
+import Training from './Components/Training';
 import Calendar from './Components/Calendar';
 
 // Jobs
@@ -12,6 +12,8 @@ import DietSelected from './Components/Jobs/Diet';
 // Wrappers
 import NavButtonWrapper from './Components/Wrappers_Global/NavButtonWrapper';
 import Four0Four from './Components/404';
+import TrainingSelected from './Components/Jobs/Training';
+import CalendarSelected from './Components/Jobs/Calendar';
 
 function App() {
 
@@ -22,9 +24,15 @@ function App() {
         <Route exact path ="/diet" element={NavButtonWrapper(Diet)} />
         <Route exact path="/diet/:number/:type" element={NavButtonWrapper(DietSelected)}/>
         {/*******/}
+        {/* Training routing */}
         <Route exact path ="/training" element={NavButtonWrapper(Training)} />
+        <Route exact path ="/training/:type" element={NavButtonWrapper(TrainingSelected)}/>
+        {/*******/}
         <Route exact path ="/life" element={NavButtonWrapper(Life)} />
+        {/* Calendar routing */}
         <Route exact path ="/calendar" element={NavButtonWrapper(Calendar)} />
+        <Route exact path ="/calendar/sel" element={NavButtonWrapper(CalendarSelected)}/>
+        {/*******/}
         <Route exact path ="/404" element={NavButtonWrapper(Four0Four)}/>
       </Routes>
   );

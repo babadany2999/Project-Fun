@@ -8,12 +8,14 @@ import AudioGlobal from './Components/Wrappers_Global/AudioGlobal';
 
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
       <GlobalStyle />
       <OverlaidBackground/>
       <AudioGlobal/>
       <Router>
         <App/>
         </Router>
-  </React.StrictMode>
+        </>
+  // </React.StrictMode> 
 );

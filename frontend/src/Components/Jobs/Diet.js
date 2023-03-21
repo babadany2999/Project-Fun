@@ -20,7 +20,7 @@ const DietSelected = () => {
 
 
     return (
-        <div className="DietSelectedWrapper">
+        <div className="DietSelectedWrapper MainPage">
             
         </div>
     )

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../Styles/Welcome.css';
 import "../Styles/Diet.css";
 import Buttons from './Buttons';
 
