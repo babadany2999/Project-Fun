@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.CountdownTimerWrapper {
+    position: absolute;
+    width: 200px;
+    right: 0;
+    top: 0;
+    margin: 25px;
+    padding: 10px;
+    background-color: rgba(64, 35, 146, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 3px solid #D4C11F;
+}
+
+.CountdownTimer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+}
+.CountdownTimerTitle {
+    flex: .3;
+    color: #D4C11F;
+    font-family: "Poppins", "sans-serif";
+    font-size: 10px;
+}
+.CountdownTimerTime{
+    flex: .7;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.CountdownTimerTimeValue {
+    font-size: 20px;
+    color: #D4C11F;
+    font-family: "Anton", "sans-serif";
+}
+.CountdownTimerSeparator {
+    font-size: 20px;
+    color: white;
+    font-style:bold;
+    font-family: "Anton", "sans-serif";
+}
