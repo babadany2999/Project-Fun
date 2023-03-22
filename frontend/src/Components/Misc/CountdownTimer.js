@@ -1,4 +1,4 @@
-import "../../Styles/Wrappers_Global/CountdownTimer.css";
+import "../../Styles/Misc/CountdownTimer.css";
 import {useEffect, useState} from 'react';
 
 
@@ -20,8 +20,7 @@ const CountdownTimer = ({title, time}) => {
                 // The format time is in: {day: DD, month: MM, year: YYYY}
                 const date_needed = new Date(time.year, time.month - 1, time.day);
                 const miliseconds = date_needed - date_current;
-    
-                    
+ 
                 var days = Math.floor(miliseconds / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((miliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((miliseconds % (1000 * 60 * 60)) / (1000 * 60));

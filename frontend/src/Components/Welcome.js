@@ -1,12 +1,14 @@
 import React from 'react';
 import '../Styles/Welcome.css';
 import Buttons from './Buttons';
-import CountdownTimerWrapper from "./Wrappers_Global/CountdownTimer.js";
+import CountdownTimerWrapper from "./Misc/CountdownTimer.js";
+import Icon from './Misc/Icon';
 
 const Welcome = () => {
   return (
     <div className="WelcomeContainer MainPage">
       <CountdownTimerWrapper></CountdownTimerWrapper>
+      <Icon></Icon>
       
 
       <Buttons link={"diet"} name={"Diet"}></Buttons>

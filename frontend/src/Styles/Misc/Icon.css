@@ -1,0 +1,14 @@
+.IconWrapper {
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url("../../../public/assets/icon.jpg");
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 20px rgb(0 255 255 / 50%);
+    border: 3px solid rgb(0, 255, 255);
+}

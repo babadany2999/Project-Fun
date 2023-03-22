@@ -1,0 +1,43 @@
+{
+    "Normal_Day": {
+        "Work": 510,
+        "Travel": 120,
+        "Training": {
+            "Theta(Cardiovascular)": 60,
+            "Zeta(Calisthenics)": 60,
+            "Alpha(Athleticism)": 60,
+            "Omega(Stretching)": 30
+        },
+        "Sleep": 480,
+        "Drawing": 30,
+        "Eating + Meal Prep": 60,
+        "Hygene": 30
+    },
+    "Saturday_Day": {
+        "Sleep": 600,
+        "Martial Arts": {
+            "BJJ": 60,
+            "Box": 60,
+            "Muay Thai": 60,
+            "Freestyle Grappling": 60
+        },
+        "Lambda(Mountain Training)": 240,
+        "Eating + Meal Prep": 75,
+        "Hygene": 60,
+        "Learning": 60,
+        "Xi(Reflexes training)": 60,
+        "Chi(Meditation)": 60
+    },
+    "Sunday_Day": {
+        "Sleep": 600,
+        "Katana Training": 120,
+        "Knife Training": 120,
+        "Combined Weapons Training": 60,
+        "Travel": 60,
+        "Shopping": 60,
+        "Free Time": 60,
+        "Time Allocated to Life(Can be anything that requires the time)": 120,
+        "Balance training": 60,
+        "Powerlifting training": 60,
+    }
+}

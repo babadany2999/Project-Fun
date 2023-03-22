@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Calendar.css';
 
 const Calendar = () => {
@@ -12,6 +12,8 @@ const Calendar = () => {
     const [currentDay, setCurrentDay] = useState(1);
 
     const [dataArray, setDataArray] = useState([]);
+
+    const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -204,6 +206,12 @@ const Calendar = () => {
     const handleLegendHover = () => {}
     const handleLegendLeave = () => {}
 
+    const handleClick = (day_nr, type) => {
+        if(type !== "invalid") {
+            navigate(`/calendar/${type}/${day_nr}/${selectedMonth}/${selectedYear}`)
+        }
+    }
+
 
     return (
         <div className="CalendarWrapper MainPage">
@@ -242,10 +250,10 @@ const Calendar = () => {
                 <div className="CalendarDays">
                     {dataArray.map((_, idx) => {
                         if(idx === 0){
-                            return <CalendarRow key={idx} day_array={dataArray.slice(0, 7)} selectedMonth={selectedMonth} selectedYear={selectedYear}></CalendarRow>
+                            return <CalendarRow key={idx} day_array={dataArray.slice(0, 7)} selectedMonth={selectedMonth} selectedYear={selectedYear} handleClick={handleClick}></CalendarRow>
                         }
                         else if(idx % 7 === 0) {
-                            return <CalendarRow key={idx} day_array={dataArray.slice(idx, idx + 7)} selectedMonth={selectedMonth} selectedYear={selectedYear}></CalendarRow>
+                            return <CalendarRow key={idx} day_array={dataArray.slice(idx, idx + 7)} selectedMonth={selectedMonth} selectedYear={selectedYear} handleClick={handleClick}></CalendarRow>
                         }
                     })}
                 </div>
@@ -255,7 +263,7 @@ const Calendar = () => {
     )
 }
 
-const CalendarRow = ({day_array, selectedMonth, selectedYear}) => {
+const CalendarRow = ({day_array, selectedMonth, selectedYear, handleClick}) => {
 
     const return_if_no_special_day = (day_nr) => {
         if(selectedYear === 2023) {
@@ -299,18 +307,32 @@ const CalendarRow = ({day_array, selectedMonth, selectedYear}) => {
                      isNormalTrainingDay={[0, 1, 2, 3, 4].includes(id) && !(isStartDay || isDDay) && return_if_no_special_day(day.day_nr) && !(is_from_other_month)}
                      isSaturdayTrainingDay={id === 5 && !(isStartDay || isDDay) && return_if_no_special_day(day.day_nr) && !(is_from_other_month)}
                      isSundayTrainingDay={id === 6 && !(isStartDay || isDDay) && return_if_no_special_day(day.day_nr) && !(is_from_other_month)}
+                     handleClick={handleClick}
                      ></CalendarDay>
                 })
             }
         </div>
     )
 }
-const CalendarDay = ({dayNumber, isInvalid, isStartDay, isDDay, isNormalTrainingDay, isSaturdayTrainingDay, isSundayTrainingDay}) => {
+const CalendarDay = ({dayNumber, isInvalid, isStartDay, isDDay, isNormalTrainingDay, isSaturdayTrainingDay, isSundayTrainingDay, handleClick}) => {
+
+
+
+        const return_nav_link_type = useCallback(() => {
+            if(isStartDay) return "start";
+            if(isDDay) return "dday";
+            if(isNormalTrainingDay) return "normal";
+            if(isSaturdayTrainingDay) return "saturday";
+            if(isSundayTrainingDay) return "sunday";
+            if(isInvalid) return "invalid";
+        }, [dayNumber])
+        
+
     return (
         <div className={`CalendarDay ${isInvalid ? "CalendarDayInvalid" : ""} ${isStartDay ? "CalendarStartDay" : ""} ${isDDay ? "CalendarDDay" : ""}
         ${isNormalTrainingDay ? "CalendarNormalTrainingDay" : ""} ${isSaturdayTrainingDay ? "CalendarSaturdayTrainingDay" : ""} 
         ${isSundayTrainingDay ? "CalendarSundayTrainingDay" : ""}
-        `}>
+        `} onClick={() => handleClick(dayNumber, return_nav_link_type())}>
             <span>
                 {dayNumber}
             </span>

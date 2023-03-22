@@ -30,8 +30,8 @@ function App() {
         {/*******/}
         <Route exact path ="/life" element={NavButtonWrapper(Life)} />
         {/* Calendar routing */}
-        <Route exact path ="/calendar" element={NavButtonWrapper(Calendar)} />
-        <Route exact path ="/calendar/sel" element={NavButtonWrapper(CalendarSelected)}/>
+        <Route exact path ="/calendar/" element={NavButtonWrapper(Calendar)} />
+        <Route exact path ="/calendar/:type/:day/:month/:year" element={NavButtonWrapper(CalendarSelected)}/>
         {/*******/}
         <Route exact path ="/404" element={NavButtonWrapper(Four0Four)}/>
       </Routes>
