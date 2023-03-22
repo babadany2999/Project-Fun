@@ -28,8 +28,6 @@ const TrainingSelected = () => {
             <div className="TrainingTitle">
             {Array.from(Array(40)).map((empty, i) => <span key={i}>Program {text}</span>)}
             </div>
-            {/* <span className="TrainingTitle">Program {text}</span> */}
-            {/* <img src={`/assets/Image_Icons/Greek_Letters/${params.type.trim().toLocaleLowerCase()}.png`}></img> */}
             <div className="TrainingTableWrapper" style={{background: `url(/assets/Image_Icons/Greek_Letters/${params.type.trim().toLocaleLowerCase()}.png)`,backgroundRepeat: "no-repeat", backgroundSize: "contain",
     backgroundPosition: "50% 50%", backgroundSize: "30%", backgroundColor: "rgba(255,255,255, 0.7)"}}>
             <table>
