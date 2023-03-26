@@ -39,6 +39,8 @@
     height: 150px;
     min-width: 0!important;
     position: relative;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    background-color: rgba(0, 255, 255, 0.2);
   }
   .Buttons p {
     width: 100%;

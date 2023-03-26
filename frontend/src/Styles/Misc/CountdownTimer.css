@@ -14,8 +14,12 @@
     justify-content: flex-start;
     align-items: center;
     border: 3px solid #D4C11F;
+    max-height: 400px;
+    overflow-x: hidden;
 }
-
+.CountdownTimerWrapper::-webkit-scrollbar {
+    display: none;
+}
 .CountdownTimer {
     margin-top: 10px;
     margin-bottom: 10px;

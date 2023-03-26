@@ -14,7 +14,7 @@ const TrainingSelected = () => {
     const [text, setText] = useState(params.type);
 
     useEffect(()=>{
-        if(!params.type || !(["theta", "zeta", "psi", "omega", "delta", "gamma"].includes(params.type.trim().toLowerCase()))) {
+        if(!params.type || !(["theta", "zeta", "psi", "omega", "delta", "gamma", "xi", "chi", "epsilon", "omikron"].includes(params.type.trim().toLowerCase()))) {
             navigate("/404");
         }
         setText(params.type.charAt(0).toUpperCase() + params.type.slice(1));

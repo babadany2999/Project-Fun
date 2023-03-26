@@ -25,7 +25,7 @@
         "Eating + Meal Prep": 75,
         "Hygene": 60,
         "Learning": 60,
-        "Xi(Reflexes training)": 60,
+        "Xi(Reaction training)": 60,
         "Chi(Meditation)": 60
     },
     "Sunday_Day": {
@@ -37,7 +37,7 @@
         "Shopping": 60,
         "Free Time": 60,
         "Time Allocated to Life(Can be anything that requires the time)": 120,
-        "Balance training": 60,
-        "Powerlifting training": 60,
+        "Balance training(Epsilon)": 60,
+        "Powerlifting training(Omikron)": 60
     }
 }

@@ -8,13 +8,16 @@ const SaturdayDay = {
         MealPrep: 30,
         Hygene: 60,
         Learning: 60,
-        ReflexesTraining: 60
+        ReactionTraining: 60
     },
+    // Sleep: 480/600
     TimeIntervals: {
         "00:00-08:00": {
             Activity: "Sleep",
             Duration: 480
         },
+
+        // Hygene: 10/60
         "08:00:08:10": {
             Activity: "Hygene",
             Duration: 10,
@@ -30,10 +33,12 @@ const SaturdayDay = {
                 }
             ]
         },
+        // Eating: 15/45
         "08:10-08:25": {
             Activity: "Eating",
             Duration: 15
         },
+        // MA: 180/240
         "08:25-11:25": {
             Activity: "Martial Arts",
             Duration: 180,
@@ -53,6 +58,7 @@ const SaturdayDay = {
                 }
             ]
         },
+        // Lambda: 150/240
         "11:25-13:55": {
             Activiy: "Program Lambda",
             Duration: 150,
@@ -64,14 +70,17 @@ const SaturdayDay = {
                 }
             ]
         },
+        // MA: 240/240
         "13:55-14:55": {
             Activity: "Muay Thai",
             Duration: 60
         },
+        // Eating: 30/45
         "14:55-15:10": {
             Activity: "Eating",
             Duration: 15
         },
+        // Lambda: 240/240
         "15:10-16:40": {
             Activity: "Program Lambda",
             Duration: 90,
@@ -83,11 +92,18 @@ const SaturdayDay = {
                 }
             ]
         },
+        // XI: 60/60
         "16:40-17:40": {
             Activity: "Program Xi",
             Duration: 60
         },
-        "17:40-18:00": {
+        // Eating: 45/45
+        "17:40-17:55": {
+            Activity: "Eating",
+            Duration: 15
+        },
+        // Hygene: 30/60
+        "17:55-18:15": {
             Activity: "Hygene",
             Duration: 20,
             Subdivided: true,
@@ -102,10 +118,33 @@ const SaturdayDay = {
                 }
             ]
         },
-        "18:00-19:00": {
+        // Chi: 60/60
+        "18:15-19:15": {
             Activity: "Program Chi",
             Duration: 60
         },
+        // Meal prep: 30/30
+        "19:15-19:45": {
+            Activity: "Meal Prep",
+            Duration: 30
+        },
+        // Hygene 60/60
+        "19:45-20:15": {
+            Activity: "Hygene",
+            Duration: 30,
+            Subdivided: true,
+            Subdivisions: [
+                {
+                    Activity: "Bath",
+                    Duration: 30
+                }
+            ]
+        },
+        // Sleep: 600/600
+        "22:00-24:00": {
+            Activity: "Sleep",
+            Duration: 120
+        }
         
     }
 }

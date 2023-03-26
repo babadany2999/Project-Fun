@@ -184,6 +184,9 @@ background-position: 50% 50%;
     flex: 14.2;
     height: 80px;
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
 }
 .CalendarDay:hover {
     
@@ -200,7 +203,8 @@ background-position: 50% 50%;
     top: 10px;
     font-family: "Anton", "sans-serif";
     font-size: 10px;
-    color: white;
+    color: rgb(0, 255, 255);
+    text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
 }
 .CalendarDayInvalid {
     position: relative;
@@ -225,12 +229,6 @@ background-position: 50% 50%;
 .CalendarBtnsNoDisplay {
     visibility: hidden;
 }
-
-.CalendarStartDay, .CalendarDDay, .CalendarNormalTrainingDay, .CalendarSaturdayTrainingDay, .CalendarSundayTrainingDay {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position:  50% 50%;
-}
 .CalendarStartDay {
     background-image:url("../../public/assets/Calendar_Icons/start.jpg");
 }
@@ -246,6 +244,15 @@ background-position: 50% 50%;
 .CalendarSundayTrainingDay {
     background-image: url("../../public/assets/Calendar_Icons/sundayday.jpg")
 }
+.CalendarDefumoxanStartDay {
+    background-image: url("../../public/assets/Calendar_Icons/defumoxan.jfif")
+}
+.CalendarDefumoxanEndCigarettesDay {
+    background-image: url("../../public/assets/Calendar_Icons/stopsmoke.jfif");
+}
+.CalendarDefumoxanEndDay {
+    background-image: url("../../public/assets/Calendar_Icons/defumoxan.jfif");
+}
 .CalendarLegend {
     position: absolute;
     width: 20px;
@@ -257,6 +264,9 @@ background-position: 50% 50%;
     background-size: contain;
     background-repeat: no-repeat;
     padding: 5px 5px;
+}
+.CalendarCurrentDay span {
+    color: #F5E55B;
 }
 @keyframes headerAnimPrevious {
     0% {

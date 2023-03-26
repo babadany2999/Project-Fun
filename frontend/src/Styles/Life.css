@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.LifeWrapper {}
+
+.LifeObjectsNeeded {
+    position: absolute;
+    width: 400px;
+    right: 0;
+    top: 20%;
+    margin: 25px;
+    padding: 10px;
+    background-color: rgba(64, 35, 146, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 3px solid #D4C11F;
+    max-height: 400px;
+    overflow-x: hidden;
+}
+.LifeObjectsNeeded::-webkit-scrollbar {
+    display: none;
+}
+.LifeObjectsTitle {
+    font-size: 30px;
+    font-family: "Poppins", "sans-serif";
+    color: #D4C11F;
+    position: relative;
+}
+.LifeObjectsTitle::before {
+    position: absolute;
+    content: "";
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.LifeObjectsExplained {
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 10px;
+    color: white;
+}
+.LifeObjectsExplainedLeft, .LifeObjectsExplainedRight {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    flex: 0.5;
+    font-family: "Anton", "sans-serif";
+}
+.LifeObjectsExplainedLeft > span, .LifeObjectsExplainedRight > div {
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+.LifeObjectsExplainedRight > div {
+    width: 14px;
+    height: 14px;
+    border: 1px solid white;
+}
+#LifeObjectsExplainedBoxRed {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+#LifeObjectsExplainedBoxBlue {
+    background-color: rgba(0, 0, 255, 0.4);
+}
+#LifeObjectsExplainedBoxGreen {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+.LifeObjectNeeded {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.LifeObjectNeededPrioZero::before, .LifeObjectNeededPrioOne::before, .LifeObjectNeededPrioTwo::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.LifeObjectNeededPrioZero::before {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.LifeObjectNeededPrioOne {
+    background-color: rgba(0,0,255, 0.2);
+}
+.LifeObjectNeededPrioTwo {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+.LifeObjectDescriptionLeft, .LifeObjectDescriptionRight {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.LifeObjectDescriptionLeft {
+    flex: 0.5;
+    color: white;
+}
+.LifeObjectDescriptionRight {
+    flex: 0.5;
+    color: #FFFBDD;
+}
+.LifeObjectDescriptionLeft > span, .LifeObjectDescriptionRight > span{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.LifeObjectsNeededTotal {
+    font-family: "Anton", "sans-serif";
+    font-size: 30px;
+    color: #D4C11F;
+}
