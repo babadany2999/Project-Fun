@@ -15,8 +15,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     user-select:none;
     user-drag: none;
-    cursor: url("/assets/custom_cursor_normal.png"), auto;
+    // cursor: url("/assets/custom_cursor_normal.png"), auto;
   }
 `;
+
 
 export default GlobalStyle;

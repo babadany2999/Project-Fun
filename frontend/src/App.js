@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Welcome from "./Components/Welcome";
 import Diet from "./Components/Diet";
@@ -18,6 +18,7 @@ import TrainingSelected from "./Components/Jobs/Training";
 import CalendarSelected from "./Components/Jobs/Calendar";
 
 function App() {
+
   return (
     <Routes>
       <Route exact path="/" element={<Welcome />} />
@@ -37,7 +38,11 @@ function App() {
         element={NavButtonWrapper(TrainingSelected)}
       />
       {/*******/}
-      <Route exact path="/life" element={NavButtonWrapper(Life)} />
+      <Route
+        exact
+        path="/life"
+        element={NavButtonWrapper(Life)}
+      />
       {/* Calendar routing */}
       <Route exact path="/calendar/" element={NavButtonWrapper(Calendar)} />
       <Route

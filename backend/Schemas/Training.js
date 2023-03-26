@@ -1,63 +1,14 @@
 const mongoose = require("mongoose");
 
-const TrainingSchema = new mongoose.Schema({
-  program_name: {
-    type: String,
-    enum: [
-      "chi",
-      "xi",
-      "epsilon",
-      "omikron",
-      "theta",
-      "zeta",
-      "psi",
-      "omega",
-      "delta",
-      "gamma",
-    ],
-    required: true,
-  },
-  duration: {
-    type: Number,
-    required: true,
-    min: 0,
-    description: "Duration is in minutes.",
-  },
-  exercises: {
-    type: [ExerciseType],
-    required: true,
-  },
-});
 
-const ExerciseType = {
+const DurationExerciseType = {
   _id: false,
-  order: {
-    type: Number,
+  time: {
+    type: [Number],
     required: true,
-    min: 1,
     description:
-      "Starts at 1 for the first exercise and increases by 1 for each subsequent exercise.",
+      "Gives the time. It is an array of length 3. Index 0 represents hours, index 1 represents minutes and index 2 represents seconds. Leave index x with value 0 if not needed.",
   },
-  name: {
-    type: String,
-    required: false,
-    description:
-      "The name of the exercise. This is more of a general encompass for similar exercises. Example: HIIT - name, exercise - sprinting + rest",
-  },
-  exercise: {
-    type: [SpecificExerciseType],
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-    description: "Lengthy explanation of the exercise.",
-  },
-  total_duration: {
-    type: Number,
-    required: true,
-    description: "Total duration of completing exercise. It is an approximative value."
-  }
 };
 
 const SpecificExerciseType = {
@@ -113,15 +64,67 @@ const SpecificExerciseType = {
   }
 };
 
-const DurationExerciseType = {
+
+const ExerciseType = {
   _id: false,
-  time: {
-    type: [Number],
+  order: {
+    type: Number,
     required: true,
+    min: 1,
     description:
-      "Gives the time. It is an array of length 3. Index 0 represents hours, index 1 represents minutes and index 2 represents seconds. Leave index x with value 0 if not needed.",
+      "Starts at 1 for the first exercise and increases by 1 for each subsequent exercise.",
   },
+  name: {
+    type: String,
+    required: false,
+    description:
+      "The name of the exercise. This is more of a general encompass for similar exercises. Example: HIIT - name, exercise - sprinting + rest",
+  },
+  exercise: {
+    type: [SpecificExerciseType],
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+    description: "Lengthy explanation of the exercise.",
+  },
+  total_duration: {
+    type: Number,
+    required: true,
+    description: "Total duration of completing exercise. It is an approximative value."
+  }
 };
+
+
+const TrainingSchema = new mongoose.Schema({
+  program_name: {
+    type: String,
+    enum: [
+      "chi",
+      "xi",
+      "epsilon",
+      "omikron",
+      "theta",
+      "zeta",
+      "psi",
+      "omega",
+      "delta",
+      "gamma",
+    ],
+    required: true,
+  },
+  duration: {
+    type: Number,
+    required: true,
+    min: 0,
+    description: "Duration is in minutes.",
+  },
+  exercises: {
+    type: [ExerciseType],
+    required: true,
+  },
+});
 
 
 module.exports = mongoose.model("Training", TrainingSchema);

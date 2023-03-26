@@ -93,15 +93,16 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 .LifeObjectNeededPrioZero::before {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.5);
 }
 .LifeObjectNeededPrioOne {
-    background-color: rgba(0,0,255, 0.2);
+    background-color: rgba(0,0,255, 0.5);
 }
 .LifeObjectNeededPrioTwo {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(0, 255, 0, 0.5);
 }
 .LifeObjectDescriptionLeft, .LifeObjectDescriptionRight {
     display: flex;
@@ -130,4 +131,36 @@
     font-family: "Anton", "sans-serif";
     font-size: 30px;
     color: #D4C11F;
+}
+.LifeObjectDescriptionRight > span a {
+    color: inherit;
+    text-decoration: none;
+    cursor: url("../../public/assets/custom_cursor_hover.png"), auto!important;
+}
+#LifeObjectEdit, #LifeObjectCheck, #LifeObjectCheckCircle, #LifeObjectDelete {
+    position: absolute;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: url("../../public/assets/custom_cursor_hover.png"), auto!important;
+}
+#LifeObjectEdit {
+    top: 10px;
+}
+#LifeObjectCheck {
+    top: 40px;
+}
+#LifeObjectCheckCircle {
+    top: 70px;
+}
+#LifeObjectDelete {
+    top: 100px;
+}
+.LifeObjectDescriptionRight > input {
+    background-color: white;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    height: 12px;
 }

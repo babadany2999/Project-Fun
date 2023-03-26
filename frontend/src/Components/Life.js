@@ -2,6 +2,13 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Life.css";
 import { useNavigate } from "react-router-dom";
+import {
+  AiOutlineEdit,
+  AiOutlineCheck,
+  AiOutlineCheckCircle,
+  AiOutlineDelete,
+  AiOutlineClose,
+} from "react-icons/ai";
 
 const Life = () => {
   // Priority 0 - URGENT/ASAP
@@ -13,6 +20,8 @@ const Life = () => {
   const navigate = useNavigate();
 
   const [total, setTotal] = useState(0);
+
+  const [isEditable, setIsEditable] = useState();
 
   const [objectsNeeded, setObjectsNeeded] = useState([
     {
@@ -28,7 +37,7 @@ const Life = () => {
       name: "Training Pants",
       quantity: 7,
       price: 0,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 20),
     },
     {
@@ -60,7 +69,7 @@ const Life = () => {
       name: "Training Bag",
       quantity: 1,
       price: 0,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 20),
     },
     {
@@ -68,7 +77,7 @@ const Life = () => {
       name: "Trimmer",
       quantity: 1,
       price: 0,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 20),
     },
     {
@@ -76,7 +85,7 @@ const Life = () => {
       name: "Water Bottle",
       quantity: 1,
       price: 0,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 20),
     },
     {
@@ -92,7 +101,7 @@ const Life = () => {
       name: "Muay Thai Leg pad",
       quantity: 1,
       price: 0,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 20),
     },
     {
@@ -100,7 +109,7 @@ const Life = () => {
       name: "Defumoxan",
       quantity: 1,
       price: 125,
-      link: "https://google.com",
+      link: 0,
       dateNeeded: new Date(2023, 4, 1),
     },
   ]);
@@ -146,6 +155,21 @@ const Life = () => {
     return return_str + dateNeeded.getFullYear();
   };
 
+  const handleEdit = (idx) => {
+    if (!isEditable || idx !== isEditable[1]) {
+      setIsEditable([true, idx]);
+    } else if (idx === isEditable[1]) {
+      setIsEditable([!isEditable[0], idx]);
+    }
+  };
+
+  const handleCheck = (idx) => {
+
+  }
+
+  const handleDone = (idx) => {}
+  const handleDelete = (idx) => {}
+
   return (
     <div className="LifeWrapper MainPage">
       <div className="LifeObjectsNeeded">
@@ -173,19 +197,72 @@ const Life = () => {
                   }`}
                   key={i}
                 >
+                  <div id="LifeObjectEdit" onClick={() => handleEdit(i)}>
+                    {isEditable && isEditable[0] && isEditable[1] === i ? (
+                      <AiOutlineClose />
+                    ) : (
+                      <AiOutlineEdit />
+                    )}
+                  </div>
+                  {isEditable && isEditable[0] && isEditable[1] === i ? (
+                    <>
+                      <div id="LifeObjectCheck" onClick={() => handleCheck(i)}>
+                        <AiOutlineCheck />
+                      </div>
+                      <div id="LifeObjectCheckCircle" onClick={() => handleDone(i)}>
+                        <AiOutlineCheckCircle />
+                      </div>
+                      <div id="LifeObjectDelete" onClick={() => handleDelete(i)}>
+                        <AiOutlineDelete />
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
                   <div className="LifeObjectDescriptionLeft">
                     <span>Name:</span>
                     <span>Quantity:</span>
                     <span>Price:</span>
                     <span>Date Needed:</span>
+                    <span>Link:</span>
                   </div>
                   <div className="LifeObjectDescriptionRight">
-                    <span>{object.name}</span>
-                    <span>
-                      {object.quantity === 0 ? "???" : object.quantity}
-                    </span>
-                    <span>{object.price === 0 ? "???" : object.price}</span>
-                    <span>{return_Date(object.dateNeeded)}</span>
+                    {isEditable && isEditable[0] && isEditable[1] === i ? (
+                      <>
+                        <input defaultValue={object.name}></input>
+                        <input
+                          defaultValue={
+                            object.quantity === 0 ? "" : object.quantity
+                          }
+                        ></input>
+                        <input
+                          defaultValue={object.price === 0 ? "" : object.price}
+                        ></input>
+                        <input
+                          defaultValue={return_Date(object.dateNeeded)}
+                        ></input>
+                        <input
+                          defaultValue={object.link === 0 ? "" : object.link}
+                        ></input>
+                      </>
+                    ) : (
+                      <>
+                        <span>{object.name}</span>
+                        <span>
+                          {object.quantity === 0 ? "???" : object.quantity}
+                        </span>
+                        <span>{object.price === 0 ? "???" : object.price}</span>
+                        <span>{return_Date(object.dateNeeded)}</span>
+                        <span>
+                          <Link
+                            to={object.link === 0 ? "#" : object.link}
+                            target={object.link === 0 ? "_self" : "_blank"}
+                          >
+                            {object.link === 0 ? "???" : object.link}
+                          </Link>
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
               );
