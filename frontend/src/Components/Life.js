@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import "../Styles/Life.css";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +11,8 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 
+import { getTasks } from "../Apollo/Queries/Tasks";
+
 const Life = () => {
   // Priority 0 - URGENT/ASAP
   // Priority 1 - NOT URGENT but important
@@ -17,102 +20,128 @@ const Life = () => {
 
   // Price in LEI
 
+  // Query and Mutations
+  const { error, loading, data } = useQuery(getTasks, {});
+  //
+
+  const [objectsNeeded, setObjectsNeeded] = useState();
+
+  useEffect(() => {
+    if (data) {
+      const { getTasks } = data;
+      if (getTasks && getTasks.length > 0) {
+        var dummy_arr = [];
+        for (let i = 0; i < getTasks.length; i++) {
+          dummy_arr.push({
+            priority: getTasks[i].priority,
+            name: getTasks[i].name,
+            quantity: getTasks[i].quantity,
+            price: getTasks[i].price,
+            link: getTasks[i].link,
+            dateNeeded: new Date(parseInt(getTasks[0].dateNeeded)),
+          });
+        }
+        setObjectsNeeded(dummy_arr);
+      }
+    }
+  }, [data]);
+
   const navigate = useNavigate();
 
   const [total, setTotal] = useState(0);
 
   const [isEditable, setIsEditable] = useState();
 
-  const [objectsNeeded, setObjectsNeeded] = useState([
-    {
-      priority: 1,
-      name: "Training Shirt",
-      quantity: 10,
-      price: 6,
-      link: "https://depozituldetricouri.ro/adult-lightweight-tank_i50.html?color=Heather%20Green%2FHeather%20Grey&size=S",
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 1,
-      name: "Training Pants",
-      quantity: 7,
-      price: 0,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 2,
-      name: "Sweater",
-      quantity: 3,
-      price: 9,
-      link: "https://depozituldetricouri.ro/adult-heavyweight-long-sleeve-hooded-tee_i847.html?color=Seafoam&size=2XL",
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 2,
-      name: "Bath Towel",
-      quantity: 2,
-      price: 65,
-      link: "https://depozituldetricouri.ro/olima-basic-towel_i571.html?color=White&size=30X50",
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 2,
-      name: "All purpose towel",
-      quantity: 3,
-      price: 7,
-      link: "https://depozituldetricouri.ro/olima-basic-towel_i571.html",
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 2,
-      name: "Training Bag",
-      quantity: 1,
-      price: 0,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 0,
-      name: "Trimmer",
-      quantity: 1,
-      price: 0,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 2,
-      name: "Water Bottle",
-      quantity: 1,
-      price: 0,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 0,
-      name: "Skipping Cord",
-      quantity: 1,
-      price: 23,
-      link: "https://www.fightshop.ro/corzi-pentru-sarit/coarda-ajustabila-armura-2-85-metrii.html",
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 0,
-      name: "Muay Thai Leg pad",
-      quantity: 1,
-      price: 0,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 20),
-    },
-    {
-      priority: 0,
-      name: "Defumoxan",
-      quantity: 1,
-      price: 125,
-      link: 0,
-      dateNeeded: new Date(2023, 4, 1),
-    },
-  ]);
+  // const [objectsNeeded, setObjectsNeeded] = useState([
+  //   {
+  //     priority: 1,
+  //     name: "Training Shirt",
+  //     quantity: 10,
+  //     price: 6,
+  //     link: "https://depozituldetricouri.ro/adult-lightweight-tank_i50.html?color=Heather%20Green%2FHeather%20Grey&size=S",
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 1,
+  //     name: "Training Pants",
+  //     quantity: 7,
+  //     price: 0,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 2,
+  //     name: "Sweater",
+  //     quantity: 3,
+  //     price: 9,
+  //     link: "https://depozituldetricouri.ro/adult-heavyweight-long-sleeve-hooded-tee_i847.html?color=Seafoam&size=2XL",
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 2,
+  //     name: "Bath Towel",
+  //     quantity: 2,
+  //     price: 65,
+  //     link: "https://depozituldetricouri.ro/olima-basic-towel_i571.html?color=White&size=30X50",
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 2,
+  //     name: "All purpose towel",
+  //     quantity: 3,
+  //     price: 7,
+  //     link: "https://depozituldetricouri.ro/olima-basic-towel_i571.html",
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 2,
+  //     name: "Training Bag",
+  //     quantity: 1,
+  //     price: 0,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 0,
+  //     name: "Trimmer",
+  //     quantity: 1,
+  //     price: 0,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 2,
+  //     name: "Water Bottle",
+  //     quantity: 1,
+  //     price: 0,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 0,
+  //     name: "Skipping Cord",
+  //     quantity: 1,
+  //     price: 23,
+  //     link: "https://www.fightshop.ro/corzi-pentru-sarit/coarda-ajustabila-armura-2-85-metrii.html",
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 0,
+  //     name: "Muay Thai Leg pad",
+  //     quantity: 1,
+  //     price: 0,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 20),
+  //   },
+  //   {
+  //     priority: 0,
+  //     name: "Defumoxan",
+  //     quantity: 1,
+  //     price: 125,
+  //     link: 0,
+  //     dateNeeded: new Date(2023, 4, 1),
+  //   },
+  // ]);
 
   const [objectsOrdered, setObjectsOrdered] = useState(null);
 
@@ -163,12 +192,10 @@ const Life = () => {
     }
   };
 
-  const handleCheck = (idx) => {
+  const handleCheck = (idx) => {};
 
-  }
-
-  const handleDone = (idx) => {}
-  const handleDelete = (idx) => {}
+  const handleDone = (idx) => {};
+  const handleDelete = (idx) => {};
 
   return (
     <div className="LifeWrapper MainPage">
@@ -209,10 +236,16 @@ const Life = () => {
                       <div id="LifeObjectCheck" onClick={() => handleCheck(i)}>
                         <AiOutlineCheck />
                       </div>
-                      <div id="LifeObjectCheckCircle" onClick={() => handleDone(i)}>
+                      <div
+                        id="LifeObjectCheckCircle"
+                        onClick={() => handleDone(i)}
+                      >
                         <AiOutlineCheckCircle />
                       </div>
-                      <div id="LifeObjectDelete" onClick={() => handleDelete(i)}>
+                      <div
+                        id="LifeObjectDelete"
+                        onClick={() => handleDelete(i)}
+                      >
                         <AiOutlineDelete />
                       </div>
                     </>
@@ -242,7 +275,7 @@ const Life = () => {
                           defaultValue={return_Date(object.dateNeeded)}
                         ></input>
                         <input
-                          defaultValue={object.link === 0 ? "" : object.link}
+                          defaultValue={object.link === "0" ? "" : object.link}
                         ></input>
                       </>
                     ) : (
@@ -258,7 +291,7 @@ const Life = () => {
                             to={object.link === 0 ? "#" : object.link}
                             target={object.link === 0 ? "_self" : "_blank"}
                           >
-                            {object.link === 0 ? "???" : object.link}
+                            {object.link === "0" ? "???" : object.link}
                           </Link>
                         </span>
                       </>
