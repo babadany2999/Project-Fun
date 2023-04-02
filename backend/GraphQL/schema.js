@@ -29,13 +29,7 @@ const RootQuery = new GraphQLObjectType({
 const RootMutations = new GraphQLObjectType({
   name: "RootMutations",
   fields: {
-    modifyTask: {
-      type: TasksType,
-      args: {
-        _id: { type: new GraphQLNonNull(GraphQLID) },
-      },
-      async resolve(_, args) {},
-    },
+    // Tasks mutations
     addTask: {
       type: TasksType,
       args: {
@@ -55,12 +49,62 @@ const RootMutations = new GraphQLObjectType({
           price: args.price,
           link: args.link,
           dateNeeded: new Date(
-            splittedDate[0],
-            splittedDate[1],
-            splittedDate[2]
+            splittedDate[2],
+            splittedDate[1] - 1,
+            splittedDate[0]
           ),
         });
         return await task.save();
+      },
+    },
+    editTask: {
+      type: TasksType,
+      args: {
+        _id: { type: new GraphQLNonNull(GraphQLID) },
+        priority: { type: GraphQLInt },
+        name: { type: GraphQLString },
+        quantity: { type: GraphQLInt },
+        price: { type: GraphQLInt },
+        link: { type: GraphQLString },
+        dateNeeded: { type: GraphQLString },
+      },
+      async resolve(_, args) {
+        let opts = {};
+        if (args.priority || args.priority === 0) opts.priority = args.priority;
+        if (args.name) opts.name = args.name;
+        if (args.quantity || args.quantity === 0) opts.quantity = args.quantity;
+        if (args.price || args.price === 0) opts.price = args.price;
+        if (args.link) opts.link = args.link;
+        if (args.dateNeeded) {
+          const splittedDate = args.dateNeeded.split("/");
+          opts.dateNeeded = new Date(
+            splittedDate[2],
+            splittedDate[1] - 1,
+            splittedDate[0]
+          );
+        }
+        return await Tasks.findOneAndUpdate(
+          { _id: args._id },
+          {
+            $set: {
+              priority: opts.priority,
+              name: opts.name,
+              quantity: opts.quantity,
+              price: opts.price,
+              link: opts.link,
+              dateNeeded: opts.dateNeeded,
+            },
+          }
+        );
+      },
+    },
+    deleteTask: {
+      type: TasksType,
+      args: {
+        _id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      async resolve(_, args) {
+        return await Tasks.findOneAndDelete({ _id: args._id });
       },
     },
   },

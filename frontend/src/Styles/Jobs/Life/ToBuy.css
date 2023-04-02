@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.ToBuy {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.ToBuyPrioZero::before, .ToBuyPrioOne::before, .ToBuyPrioTwo::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.ToBuyPrioZero::before {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.ToBuyPrioOne::before {
+    background-color: rgba(0,0,255, 0.5);
+}
+.ToBuyPrioTwo::before {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+.ToBuyDescriptionLeft {
+    flex: 0.5;
+    color: white;
+}
+.ToBuyDescriptionRight {
+    flex: 0.5;
+    color: #FFFBDD;
+}
+.ToBuyDescriptionLeft, .ToBuyDescriptionRight {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ToBuyDescriptionLeft > span, .ToBuyDescriptionRight > span {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.ToBuyDescriptionRight > span a {
+    color: inherit;
+    text-decoration: none;
+    cursor: url("../../../../public/assets/custom_cursor_hover.png"), auto!important;
+}
+#ToBuyEdit, #ToBuyCheckCircle, #ToBuyDelete {
+    position: absolute;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: url("../../../../public/assets/custom_cursor_hover.png"), auto!important;
+}
+#ToBuyEdit {
+    top: 10px;
+}
+#ToBuyCheckCircle {
+    top: 40px;
+}
+#ToBuyDelete {
+    top: 70px;
+}
+.ToBuyDescriptionRight > input {
+    background-color: white;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    height: 12px;
+}
+.ToBuyInvalidValue {
+    background-color: red!important;
+}
+#ToBuyWarn {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    font-family: "Anton", "sans-serif";
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(64, 35, 146, 0.9);
+    color:#D4C11F;
+    transition: 3s;
+}
+
+#ToBuyWarn:not(.ToBuyWarnShow) {
+    visibility: hidden;
+    opacity: 0;
+}
+.ToBuyWarnShow {
+    visibility: visible;
+    opacity: 1;
+}

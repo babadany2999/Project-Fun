@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../../Styles/Jobs/Training.css";
 import "../../Styles/Jobs/Training.scss";
+import Program from "./Training/Program";
 
 
 const TrainingSelected = () => {
@@ -23,12 +24,12 @@ const TrainingSelected = () => {
     
     return (
         <div className="TrainingSelectedWrapper MainPage">
-            {params.type === "theta" ? 
             <>
             <div className="TrainingTitle">
             {Array.from(Array(40)).map((empty, i) => <span key={i}>Program {text}</span>)}
             </div>
-            <div className="TrainingTableWrapper" style={{background: `url(/assets/Image_Icons/Greek_Letters/${params.type.trim().toLocaleLowerCase()}.png)`,backgroundRepeat: "no-repeat", backgroundSize: "contain",
+            <Program type={params.type.trim()}></Program>
+            {/* <div className="TrainingTableWrapper" style={{background: `url(/assets/Image_Icons/Greek_Letters/${params.type.trim().toLocaleLowerCase()}.png)`,backgroundRepeat: "no-repeat", backgroundSize: "contain",
     backgroundPosition: "50% 50%", backgroundSize: "30%", backgroundColor: "rgba(255,255,255, 0.7)"}}>
             <table>
                 <tbody>
@@ -107,9 +108,8 @@ const TrainingSelected = () => {
                     </tr>
                 </tbody>
             </table>
-            </div>
+            </div> */}
             </>
-         : ""}
         </div>
     )
 }

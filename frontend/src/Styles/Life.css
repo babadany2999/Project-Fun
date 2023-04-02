@@ -16,6 +16,7 @@
     align-items: center;
     border: 3px solid #D4C11F;
     max-height: 400px;
+    min-height: 400px;
     overflow-x: hidden;
 }
 .LifeObjectsNeeded::-webkit-scrollbar {
@@ -73,94 +74,27 @@
 #LifeObjectsExplainedBoxGreen {
     background-color: rgba(0, 255, 0, 0.4);
 }
-.LifeObjectNeeded {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 400px;
-    border: 2px solid white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: rgba(0,0,0,0.5);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: relative;
-}
-.LifeObjectNeededPrioZero::before, .LifeObjectNeededPrioOne::before, .LifeObjectNeededPrioTwo::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-.LifeObjectNeededPrioZero::before {
-    background-color: rgba(255, 0, 0, 0.5);
-}
-.LifeObjectNeededPrioOne {
-    background-color: rgba(0,0,255, 0.5);
-}
-.LifeObjectNeededPrioTwo {
-    background-color: rgba(0, 255, 0, 0.5);
-}
-.LifeObjectDescriptionLeft, .LifeObjectDescriptionRight {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20px;
-    margin-right: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.LifeObjectDescriptionLeft {
-    flex: 0.5;
-    color: white;
-}
-.LifeObjectDescriptionRight {
-    flex: 0.5;
-    color: #FFFBDD;
-}
-.LifeObjectDescriptionLeft > span, .LifeObjectDescriptionRight > span{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 .LifeObjectsNeededTotal {
     font-family: "Anton", "sans-serif";
     font-size: 30px;
     color: #D4C11F;
 }
-.LifeObjectDescriptionRight > span a {
-    color: inherit;
-    text-decoration: none;
+.LifeObjectsAddObject {
     cursor: url("../../public/assets/custom_cursor_hover.png"), auto!important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+    font-family: "Anton", "sans-serif";
+    color: #D4C11F;
+    border: 3px solid white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgb(0 255 255 / 50%);
+    transition: .5s;
+    border-radius: 20%;
 }
-#LifeObjectEdit, #LifeObjectCheck, #LifeObjectCheckCircle, #LifeObjectDelete {
-    position: absolute;
-    right: 10px;
-    color: white;
-    font-size: 20px;
-    cursor: url("../../public/assets/custom_cursor_hover.png"), auto!important;
-}
-#LifeObjectEdit {
-    top: 10px;
-}
-#LifeObjectCheck {
-    top: 40px;
-}
-#LifeObjectCheckCircle {
-    top: 70px;
-}
-#LifeObjectDelete {
-    top: 100px;
-}
-.LifeObjectDescriptionRight > input {
-    background-color: white;
-    outline: none;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: none;
-    height: 12px;
+.LifeObjectsAddObject:hover {
+    background-color: rgba(0, 255, 255, 0.3)
 }
