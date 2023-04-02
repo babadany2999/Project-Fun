@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startdev": "concurrently \"npm start\" \"cd frontend && npm start\""
+    "install-packages": "npm i && cd frontend && npm i",
+    "startdev": "concurrently \"npm start\" \"cd frontend && npm start\"",
+    "startnewdev": "npm i concurrently && concurrently \"npm run \""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
