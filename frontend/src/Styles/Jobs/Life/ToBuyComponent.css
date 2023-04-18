@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-.LifeWrapper {}
 
-.LifeObjectsNeeded {
+.ToBuyComponent {
     position: absolute;
     width: 400px;
     right: 0;
@@ -19,16 +18,16 @@
     min-height: 400px;
     overflow-x: hidden;
 }
-.LifeObjectsNeeded::-webkit-scrollbar {
+.ToBuyComponent::-webkit-scrollbar {
     display: none;
 }
-.LifeObjectsTitle {
+.ToBuyComponentTitle {
     font-size: 30px;
     font-family: "Poppins", "sans-serif";
     color: #D4C11F;
     position: relative;
 }
-.LifeObjectsTitle::before {
+.ToBuyComponentTitle::before {
     position: absolute;
     content: "";
     background-color: white;
@@ -38,7 +37,7 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.LifeObjectsExplained {
+.ToBuyComponentExplained {
     width: 100%;
     margin-top: 5px;
     display: flex;
@@ -47,7 +46,7 @@
     font-size: 10px;
     color: white;
 }
-.LifeObjectsExplainedLeft, .LifeObjectsExplainedRight {
+.ToBuyComponentExplainedLeft, .ToBuyComponentExplainedRight {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -56,40 +55,40 @@
     flex: 0.5;
     font-family: "Anton", "sans-serif";
 }
-.LifeObjectsExplainedLeft > span, .LifeObjectsExplainedRight > div {
+.ToBuyComponentExplainedLeft > span, .ToBuyComponentExplainedRight > div {
     margin-top: 2.5px;
     margin-bottom: 2.5px;
 }
-.LifeObjectsExplainedRight > div {
+.ToBuyComponentExplainedRight > div {
     width: 14px;
     height: 14px;
     border: 1px solid white;
 }
-#LifeObjectsExplainedBoxRed {
+#ToBuyComponentExplainedBoxRed {
     background-color: rgba(255, 0, 0, 0.4);
 }
-#LifeObjectsExplainedBoxBlue {
+#ToBuyComponentExplainedBoxBlue {
     background-color: rgba(0, 0, 255, 0.4);
 }
-#LifeObjectsExplainedBoxGreen {
+#ToBuyComponentExplainedBoxGreen {
     background-color: rgba(0, 255, 0, 0.4);
 }
-.LifeObjectsNeededTotal {
+.ToBuyComponentTotal {
     font-family: "Anton", "sans-serif";
     font-size: 30px;
     color: #D4C11F;
     align-self: flex-start;
     margin-left: 20px;
 }
-.LifeObjectsNeededTotalDelivery {
+.ToBuyComponentTotalDelivery {
     font-family: "Anton", "sans-serif";
     font-size: 15px;
     color: white;
     align-self: flex-end;
     margin-right: 50px;
 }
-.LifeObjectsAddObject {
-    cursor: url("../../public/assets/custom_cursor_hover.png"), auto!important;
+.ToBuyComponentAddObject {
+    cursor: url("../../../../public/assets/custom_cursor_hover.png"), auto!important;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
@@ -104,6 +103,6 @@
     transition: .5s;
     border-radius: 20%;
 }
-.LifeObjectsAddObject:hover {
+.ToBuyComponentAddObject:hover {
     background-color: rgba(0, 255, 255, 0.3)
 }

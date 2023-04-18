@@ -10,6 +10,7 @@ const getTasks = gql`
       price
       link
       dateNeeded
+      deliveryPrice
     }
   }
 `;

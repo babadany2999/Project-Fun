@@ -72,18 +72,6 @@ const CountdownTimerWrapper = () => {
         title={"D-Day"}
         time={{ day: 20, month: 5, year: 2030 }}
       ></CountdownTimer>
-      <CountdownTimer
-        title={"Start Defumoxan"}
-        time={{ day: 1, month: 4, year: 2023 }}
-      ></CountdownTimer>
-      <CountdownTimer
-        title={"End Cigarettes"}
-        time={{ day: 6, month: 4, year: 2023 }}
-      ></CountdownTimer>
-      <CountdownTimer
-        title={"End Defumoxan"}
-        time={{ day: 26, month: 4, year: 2023 }}
-      ></CountdownTimer>
     </div>
   );
 };

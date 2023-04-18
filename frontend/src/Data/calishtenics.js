@@ -42,7 +42,7 @@ const Exercises = {
     C: "Bicycle Crunches",
     B: "Plank",
     A: "L Sit",
-    S: "Toes-To-Bar",
+    S: "V Sit",
     SS: "Human Flag",
     SSS: "Manna",
     Z: "High Manna",
@@ -50,8 +50,8 @@ const Exercises = {
   legs: {
     F: "Calf Raises",
     E: "Wall sits",
-    D: "Squats",
-    C: "Split Squats",
+    D: "Bodyweight Squats",
+    C: "Split Squats 1",
     B: "10kg Split Squats",
     A: "20kg Split Squats",
     S: "30kg Split Squats",
@@ -93,10 +93,10 @@ const Exercises = {
     ],
     "Z*": [
       "CTI",
-      "Reverse Vanelder",
+      "Reverse VanGelder",
       "Reverse Zanetti",
       "CTI Muscle-up",
-      "Straight arms reverse Mu(Straight arms inverted butterfly)"
-    ]
+      "Straight arms reverse Mu(Straight arms inverted butterfly)",
+    ],
   },
 };

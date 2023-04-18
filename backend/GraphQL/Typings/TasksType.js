@@ -20,6 +20,7 @@ const TasksType = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString),
     },
     dateNeeded: { type: new GraphQLNonNull(GraphQLString) },
+    deliveryPrice: {type: new GraphQLNonNull(GraphQLInt)}
   }),
 });
 

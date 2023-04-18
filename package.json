@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-packages": "npm i && cd frontend && npm i",
-    "startdev": "concurrently \"npm start\" \"cd frontend && npm start\"",
-    "startnewdev": "npm i concurrently && concurrently \"npm run \""
+    "startdev": "concurrently \"npm start\" \"cd frontend && npm start\""
   },
   "author": "",
   "license": "ISC",

@@ -8,6 +8,7 @@ const addTask = gql`
     $price: Int!
     $link: String!
     $dateNeeded: String!
+    $deliveryPrice: Int!
   ) {
     addTask(
       priority: $priority
@@ -16,6 +17,7 @@ const addTask = gql`
       price: $price
       link: $link
       dateNeeded: $dateNeeded
+      deliveryPrice: $deliveryPrice
     ) {
       _id
       priority
@@ -24,6 +26,7 @@ const addTask = gql`
       price
       link
       dateNeeded
+      deliveryPrice
     }
   }
 `;
@@ -37,6 +40,7 @@ const editTask = gql`
     $price: Int
     $link: String
     $dateNeeded: String
+    $deliveryPrice: Int
   ) {
     editTask(
       _id: $_id
@@ -46,6 +50,7 @@ const editTask = gql`
       price: $price
       link: $link
       dateNeeded: $dateNeeded
+      deliveryPrice: $deliveryPrice
     ) {
       _id
       priority
@@ -54,6 +59,7 @@ const editTask = gql`
       price
       link
       dateNeeded
+      deliveryPrice
     }
   }
 `;

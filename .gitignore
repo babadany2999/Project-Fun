@@ -1,2 +1,5 @@
-node_modules
 chatgpt.txt
+**/node_modules
+AI
+frontend/public/assets/Files/
+frontend/public/assets/Video/

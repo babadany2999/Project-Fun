@@ -11,6 +11,7 @@ import "../../../Styles/Jobs/Life/ToBuy.css";
 import { useMutation } from "@apollo/client";
 import { addTask, deleteTask, editTask } from "../../../Apollo/Mutations/Tasks";
 import checkRegexToBuy from "../../../Logic/ToBuy";
+import { reverse_Date } from "../../../Logic/Date";
 
 const ToBuy = ({
   object,
@@ -39,25 +40,30 @@ const ToBuy = ({
   const [priceValue, setPriceValue] = useState(object.price);
   const [linkValue, setLinkValue] = useState(object.link);
   const [dateNeededValue, setDateNeededValue] = useState(object.dateNeeded);
+  const [deliveryPriceValue, setDeliveryPriceValue] = useState(
+    object.deliveryPrice
+  );
 
   useEffect(() => {
     var timeoutVar;
     try {
       setIsIncorrectValue("");
       if (clickedDone) {
-        console.log("in done!");
         const priorityInt = parseInt(priorityValue);
         const quantityInt = parseInt(quantityValue);
         const priceInt = parseInt(priceValue);
+        const deliveryPriceInt = parseInt(deliveryPriceValue);
         const regexResult = checkRegexToBuy(
           priorityInt,
           nameValue,
           quantityInt,
           priceInt,
           dateNeededValue,
-          linkValue
+          linkValue,
+          deliveryPriceInt
         );
-        if (regexResult === true) {
+        const dateProperlyFormatted = reverse_Date(dateNeededValue);
+        if (regexResult === true && dateProperlyFormatted !== false) {
           if (!object._id) {
             addTaskMutation({
               variables: {
@@ -65,8 +71,9 @@ const ToBuy = ({
                 name: nameValue,
                 quantity: quantityInt,
                 price: priceInt,
-                dateNeeded: dateNeededValue,
+                dateNeeded: dateProperlyFormatted,
                 link: linkValue,
+                deliveryPrice: deliveryPriceInt,
               },
             }).then((res) => {
               if (res.data) {
@@ -82,8 +89,9 @@ const ToBuy = ({
                 name: nameValue,
                 quantity: quantityInt,
                 price: priceInt,
-                dateNeeded: dateNeededValue,
+                dateNeeded: dateProperlyFormatted,
                 link: linkValue,
+                deliveryPrice: deliveryPriceInt,
               },
             });
           }
@@ -152,6 +160,7 @@ const ToBuy = ({
     setPriceValue(object.price);
     setLinkValue(object.link);
     setDateNeededValue(return_Date(object.dateNeeded));
+    setDeliveryPriceValue(object.deliveryPrice);
     handleEdit(_id);
   };
 
@@ -222,6 +231,7 @@ const ToBuy = ({
         <span>Date Needed:</span>
         <span>Link:</span>
         <span>Priority:</span>
+        <span>Delivery Price:</span>
       </div>
       <div className="ToBuyDescriptionRight">
         {isEditable && isEditable[0] && isEditable[1] === object._id ? (
@@ -274,6 +284,14 @@ const ToBuy = ({
               onChange={(e) => setPriorityValue(e.target.value)}
               placeholder={0}
             ></input>
+            <input
+              className={`${
+                isIncorrectValue === "deliveryPrice" ? "ToBuyInvalidValue" : ""
+              }`}
+              value={deliveryPriceValue ? deliveryPriceValue : ""}
+              onChange={(e) => setDeliveryPriceValue(e.target.value)}
+              placeholder={0}
+            ></input>
           </>
         ) : (
           <>
@@ -290,6 +308,9 @@ const ToBuy = ({
               </Link>
             </span>
             <span>{object.priority}</span>
+            <span>
+              {object.deliveryPrice === 0 ? "???" : object.deliveryPrice}
+            </span>
           </>
         )}
       </div>

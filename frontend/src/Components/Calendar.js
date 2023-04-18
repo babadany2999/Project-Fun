@@ -413,9 +413,6 @@ const CalendarDay = ({
   isSaturdayTrainingDay,
   isSundayTrainingDay,
   isCurrentDay,
-  isDefumoxanStartDay,
-  isDefumoxanEndCigarettesDay,
-  isDefumoxanEndDay,
   handleClick,
 }) => {
   const return_nav_link_type = useCallback(() => {
@@ -437,11 +434,6 @@ const CalendarDay = ({
       } 
         ${isSundayTrainingDay ? "CalendarSundayTrainingDay" : ""}
         ${isCurrentDay ? "CalendarCurrentDay" : ""}
-        ${isDefumoxanStartDay ? "CalendarDefumoxanStartDay" : ""}
-        ${
-          isDefumoxanEndCigarettesDay ? "CalendarDefumoxanEndCigarettesDay" : ""
-        }
-        ${isDefumoxanEndDay ? "CalendarDefumoxanEndDay" : ""}
         `}
       onClick={() => handleClick(dayNumber, return_nav_link_type())}
     >
